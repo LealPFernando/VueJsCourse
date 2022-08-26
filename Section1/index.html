@@ -15,11 +15,17 @@
         margin: 20px;
         display: inline-block;
       }
+      body {
+        background: #eee;
+        max-width: 960px;
+        margin: 20px auto;
+      }
     </style>
   </head>
   <body>
     <h1>Hello, Vue :)</h1>
     <div id="app">
+      <a :href="url">Best website</a>
       <div v-if="showBooks">
         <p>{{ title }} - {{ author }} - {{ age }} -</p>
       </div>
@@ -31,6 +37,14 @@
         <span v-if="showBooks">Hide Books</span>
         <span v-else>Show Books</span>
       </button>
+
+      <div v-if="showBooks">
+        <ul>
+          <li v-for="item in books">
+            <p>{{ item.title }} - {{ item.author }}</p>
+          </li>
+        </ul>
+      </div>
 
       <div v-show="showBooks">Currently Showing Books</div>
 
